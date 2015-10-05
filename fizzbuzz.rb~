@@ -1,0 +1,25 @@
+def fizzbuzz(num, &strategy)
+	arr=[]
+	(1..num).each{|i|
+		arr.push(fizzbuzz_puts(i))
+ 	}
+
+ 	if strategy
+ 		arr.each{|i| yield
+ 			fizzbuzz_puts(i)
+ 		}
+ 	end
+ 	arr
+end
+
+def fizzbuzz_puts(num)
+	if num % 5 == 0 and num % 3 == 0
+		return "FizzBuzz"
+	elsif num % 3 == 0
+		return "Fizz"
+	elsif num % 5 == 0
+		return "Buzz"
+	else
+		return num
+	end
+end
